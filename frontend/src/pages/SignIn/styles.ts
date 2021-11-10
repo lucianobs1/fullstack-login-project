@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import loginBg from '../../assets/sign-up.svg';
+import loginBg from '../../assets/sign-in.svg';
 import { shade } from 'polished';
 
 export const Container = styled.div`
@@ -66,7 +66,7 @@ export const Main = styled.main`
     align-items: center;
     color: #3f3d56;
     transition: color 0.5s;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
 
     &:hover {
       color: #6c63ff;

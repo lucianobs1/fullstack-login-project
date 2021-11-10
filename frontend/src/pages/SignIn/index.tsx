@@ -1,13 +1,12 @@
 import React, { FormEvent, useState } from 'react';
-import { FiArrowLeft } from 'react-icons/fi';
+import { FiGithub } from 'react-icons/fi';
 import { toast, Toaster } from 'react-hot-toast';
 
 import { Container, Aside, Main } from './styles';
 
-const SignUp: React.FC = () => {
+const SignIn: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
 
   function handleSubmit(event: FormEvent<HTMLFormElement>){
     event.preventDefault();
@@ -19,22 +18,13 @@ const SignUp: React.FC = () => {
       if(password.trim() === ''){
         throw new Error('Senha é obrigatório');
       }
-      if(password.length < 6) {
-        throw new Error('Senha deve conter no minimo 6 digitos');
-      }
-      if(confirmPassword.trim() === ''){
-        throw new Error('Confirmação de senha é obrigatório');
-      }
-      if(password !== confirmPassword) {
-        throw new Error('Senhas não batem');
-      }
 
       toast.success('Success on send form')
     } catch (err) {
       if (err instanceof Error) {
         toast.error(err.message);
       } else {
-        toast.error('Any error ocurred on register your account');
+        toast.error('Any error ocurred on sign in ');
       }
     }
   }
@@ -44,7 +34,7 @@ const SignUp: React.FC = () => {
       <Aside />
       <Main>
         <form onSubmit={handleSubmit}>
-          <h1>Doe ou adote um gato e faça um pet feliz !!</h1>
+          <h1>Conecte-se e faça um gato feliz !!</h1>
           <input
            type="text"
            placeholder="Digite seu username"
@@ -57,27 +47,21 @@ const SignUp: React.FC = () => {
            value={password}
            onChange={(event) => setPassword(event.target.value)}
           />
-          <input 
-            type="password"
-            placeholder="Confirme sua senha"
-            value={confirmPassword}
-            onChange={(event) => setConfirmPassword(event.target.value)}
-          />
 
           <Toaster
             position="top-center"
             reverseOrder={false}
           />  
 
-          <button type="submit">Cadastrar</button>
+          <button type="submit">Entrar</button>
         </form>
-        <a href="/sign-in">
-          <FiArrowLeft size={16} />
-          Já tenho uma conta
+        <a href="/">
+          <FiGithub size={16} />
+          Não tem uma conta ? Cadastre-se
         </a>
       </Main>
     </Container>
   );
 }
 
-export { SignUp };
+export { SignIn };
