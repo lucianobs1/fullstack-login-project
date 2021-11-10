@@ -3,7 +3,7 @@ import { FiArrowLeft } from 'react-icons/fi';
 
 import { Container, Aside, Main } from './styles';
 
-const SignIn: React.FC = () => {
+const SignUp: React.FC = () => {
   return (
     <Container>
       <Aside />
@@ -23,4 +23,4 @@ const SignIn: React.FC = () => {
   );
 }
 
-export { SignIn };
+export { SignUp };
