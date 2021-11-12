@@ -41,10 +41,10 @@
   # Install the dependencies
   $ yarn
 
-  # Open your gui database and select sqlite.database
-
   # Run script bellow in your ide to run migrations
   $ yarn typeorm migration:run
+
+  # Open your gui database and select sqlite.database
 
   #to finish, run the api service
   $ yarn dev
