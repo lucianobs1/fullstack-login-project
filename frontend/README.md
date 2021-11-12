@@ -3,7 +3,7 @@
 
 ## :rocket: Technologies
 
-Techonologies that i used to develop this web client
+:atom_symbol: Techonologies that i used to develop this web client
 
 - ReactJS
 - TypeScript
@@ -11,6 +11,18 @@ Techonologies that i used to develop this web client
 - Styled Components
 - Polished
 - Axios
+
+:gear: Techonologies that i used to develop this api
+
+- NodeJS
+- TypeScript
+- Express
+- JWT-token
+- uuid v4
+- Sqlite
+- Eslint
+- Prettier
+- EditorConfig
 
 ## :crossed_swords: Getting started
 - Have this application's API running
