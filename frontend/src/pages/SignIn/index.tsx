@@ -3,28 +3,39 @@ import { FiGithub } from 'react-icons/fi';
 import { toast, Toaster } from 'react-hot-toast';
 
 import { Container, Aside, Main } from './styles';
+import { apiClient } from '../../services/apiClient';
 
 const SignIn: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>){
+  async function handleSubmit(event: FormEvent<HTMLFormElement>){
     event.preventDefault();
 
     try {
       if(username.trim() === ''){
-        throw new Error('Username é obrigatório');
+        throw new Error('Username é obrigatória');
       }
       if(password.trim() === ''){
-        throw new Error('Senha é obrigatório');
+        throw new Error('Senha é obrigatória');
       }
 
-      toast.success('Success on send form')
+      const response = await apiClient.post('/sessions', {
+        username,
+        password
+      })
+
+      setUsername('');
+      setPassword('');
+
+      console.log(response.data);
+
+      toast.success('Success on connect');
     } catch (err) {
       if (err instanceof Error) {
         toast.error(err.message);
       } else {
-        toast.error('Any error ocurred on sign in ');
+        toast.error('Server error');
       }
     }
   }

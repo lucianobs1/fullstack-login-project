@@ -1,15 +1,20 @@
 import React, { FormEvent, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 import { toast, Toaster } from 'react-hot-toast';
 
 import { Container, Aside, Main } from './styles';
+import {  apiClient } from '../../services/apiClient';
 
 const SignUp: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>){
+  const history = useHistory();
+
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>){
     event.preventDefault();
 
     try {
@@ -17,25 +22,35 @@ const SignUp: React.FC = () => {
         throw new Error('Username é obrigatório');
       }
       if(password.trim() === ''){
-        throw new Error('Senha é obrigatório');
+        throw new Error('Senha é obrigatória');
       }
       if(password.length < 6) {
         throw new Error('Senha deve conter no minimo 6 digitos');
       }
       if(confirmPassword.trim() === ''){
-        throw new Error('Confirmação de senha é obrigatório');
+        throw new Error('Confirmação de senha é obrigatória');
       }
       if(password !== confirmPassword) {
         throw new Error('Senhas não batem');
       }
 
-      toast.success('Success on send form')
+      await apiClient.post('/users', {
+        username,
+        password
+      });
+
+      setUsername('');
+      setPassword('');
+      setConfirmPassword('');
+
+      toast.success('Success register user');
+      
+      history.push('/sign-in')
+
     } catch (err) {
       if (err instanceof Error) {
         toast.error(err.message);
-      } else {
-        toast.error('Any error ocurred on register your account');
-      }
+      } 
     }
   }
 
@@ -46,18 +61,21 @@ const SignUp: React.FC = () => {
         <form onSubmit={handleSubmit}>
           <h1>Doe ou adote um gato e faça um pet feliz !!</h1>
           <input
+           name="username"
            type="text"
            placeholder="Digite seu username"
            value={username}
            onChange={(event) => setUsername(event.target.value)}
           />
           <input
+           name="password"
            type="password"
            placeholder="Digite sua senha"
            value={password}
            onChange={(event) => setPassword(event.target.value)}
           />
           <input 
+            name="confim_password"
             type="password"
             placeholder="Confirme sua senha"
             value={confirmPassword}

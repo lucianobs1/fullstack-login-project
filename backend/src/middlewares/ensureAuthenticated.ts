@@ -20,6 +20,12 @@ function ensureAuthenticated(
 
     const { sub } = decoded;
 
+    request.user = {
+      id: sub as string,
+    };
+
+    console.log(request.user.id);
+
     next();
   } catch (error) {
     throw new Error('Invalid JWT token');
