@@ -38,7 +38,7 @@
 ```
 ### Follow the steps below to run backend
 ```
-  <!--- install the dependencies -->
+  [comment]: <> (install the dependencies)
   $ yarn
 
 ```
