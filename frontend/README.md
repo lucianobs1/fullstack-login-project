@@ -36,4 +36,11 @@
  open backend folder to access NodeJs project
 
 ```
+### Follow the steps below to run backend
+```
+  # install the dependencies
+  $ yarn
+  
+```
+
 
