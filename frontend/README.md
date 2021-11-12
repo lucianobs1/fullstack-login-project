@@ -38,8 +38,28 @@
 ```
 ### Follow the steps below to run backend
 ```
-  [comment]: <> (install the dependencies)
+  # Install the dependencies
   $ yarn
+
+  # Open your gui database and select sqlite.database
+
+  # Run script bellow in your ide to run migrations
+  $ yarn typeorm migration:run
+
+  #to finish, run the api service
+  $ yarn dev
+
+```
+
+### Follow the steps below to run frontend
+```
+  # Install the dependencies
+  $ yarn
+
+  # Be sure the file 'src/services/api.ts' have the IP to your API
+
+  # Start the client
+  $ yarn start
 
 ```
 
