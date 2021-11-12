@@ -1,5 +1,7 @@
 # ReactJS and NodeJS application for Login project
 
+![Api apresentation](https://github.com/lucianobs1/login-project/blob/main/api-gif.gif)
+
 
 ## :rocket: Technologies
 
