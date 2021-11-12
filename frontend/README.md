@@ -3,7 +3,7 @@
 
 ## :rocket: Technologies
 
-:EMOJICODE: Techonologies that i used to develop this web client
+Techonologies that i used to develop this web client
 
 - ReactJS
 - TypeScript
@@ -12,7 +12,7 @@
 - Polished
 - Axios
 
-## Getting started
+## :crossed_swords: Getting started
 - Have this application's API running
 
 ### Clone the project and access the folder
@@ -22,6 +22,6 @@
 
  open frontend folder to access ReactJS project
  open backend folder to access NodeJs project
- 
+
 ```
 
