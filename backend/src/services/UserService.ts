@@ -19,7 +19,7 @@ class UserService {
   async create({ username, password }: ICreateUser): Promise<User> {
     const userExists = await this.usersRepository.findOne(username);
 
-    if (userExists) {
+    if (!userExists) {
       throw new Error('username already exists, try outher username');
     }
 
